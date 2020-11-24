@@ -1,0 +1,172 @@
+{
+  "id": "http://data.ub.tu-dortmund.de/resource/mms/pubtype/fragment",
+  "type": "Concept",
+  "followers": "https://test.skohub.io/followers?subject=data.ub.tu-dortmund.de%2Fresource%2Fmms%2Fpubtype%2Ffragment",
+  "inbox": "https://test.skohub.io/inbox?target=data.ub.tu-dortmund.de%2Fresource%2Fmms%2Fpubtype%2Ffragment",
+  "prefLabel": {
+    "en": "Fragment",
+    "de": "Unselbständiges Werk"
+  },
+  "notation": [
+    "fragment"
+  ],
+  "narrower": [
+    {
+      "id": "http://data.ub.tu-dortmund.de/resource/mms/pubtype/editorial",
+      "prefLabel": {
+        "en": "Editorial",
+        "de": "Editorial"
+      }
+    },
+    {
+      "id": "http://data.ub.tu-dortmund.de/resource/mms/pubtype/chapter",
+      "prefLabel": {
+        "en": "Chapter",
+        "de": "Kapitel"
+      }
+    },
+    {
+      "id": "http://data.ub.tu-dortmund.de/resource/mms/pubtype/chapter_in_conference",
+      "prefLabel": {
+        "en": "Chapter in conference",
+        "de": "Kapitel in Konferenzband"
+      }
+    },
+    {
+      "id": "http://data.ub.tu-dortmund.de/resource/mms/pubtype/chapter_in_legal_commentary",
+      "prefLabel": {
+        "en": "Chapter in legal commentary",
+        "de": "Kapitel im Gesetzeskommentar"
+      }
+    },
+    {
+      "id": "http://data.ub.tu-dortmund.de/resource/mms/pubtype/article_newspaper",
+      "prefLabel": {
+        "en": "Article newspaper",
+        "de": "Zeitungsartikel"
+      }
+    },
+    {
+      "id": "http://data.ub.tu-dortmund.de/resource/mms/pubtype/article_journal",
+      "prefLabel": {
+        "en": "Article journal",
+        "de": "Zeitschriftenartikel"
+      }
+    },
+    {
+      "id": "http://data.ub.tu-dortmund.de/resource/mms/pubtype/article_overview",
+      "prefLabel": {
+        "en": "Article overview",
+        "de": "Überblicksartikel"
+      }
+    },
+    {
+      "id": "http://data.ub.tu-dortmund.de/resource/mms/pubtype/article_integrating_resource",
+      "prefLabel": {
+        "en": "Article in integrating resource",
+        "de": "Artikel in einer integrierenden Ressource"
+      }
+    },
+    {
+      "id": "http://data.ub.tu-dortmund.de/resource/mms/pubtype/lexicon_article",
+      "prefLabel": {
+        "en": "Article lexicon",
+        "de": "Lexikonartikel"
+      }
+    },
+    {
+      "id": "http://data.ub.tu-dortmund.de/resource/mms/pubtype/abstract",
+      "prefLabel": {
+        "en": "Abstract",
+        "de": "Zusammenfassung"
+      }
+    },
+    {
+      "id": "http://data.ub.tu-dortmund.de/resource/mms/pubtype/review",
+      "prefLabel": {
+        "en": "Review",
+        "de": "Rezension"
+      }
+    }
+  ],
+  "inScheme": {
+    "id": "http://data.ub.tu-dortmund.de/resource/publicationTypesVocabulary",
+    "title": {
+      "en": "The pubtype vocabulary used in MMS.",
+      "de": "MMS-Vokabular für Publikationstypen"
+    }
+  },
+  "topConceptOf": {
+    "id": "http://data.ub.tu-dortmund.de/resource/publicationTypesVocabulary"
+  },
+  "@context": {
+    "@version": 1.1,
+    "id": "@id",
+    "type": "@type",
+    "@vocab": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dct": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "vann": "http://purl.org/vocab/vann/",
+    "as": "https://www.w3.org/ns/activitystreams#",
+    "ldp": "http://www.w3.org/ns/ldp#",
+    "title": {
+      "@id": "dct:title",
+      "@container": "@language"
+    },
+    "description": {
+      "@id": "dct:description",
+      "@container": "@language"
+    },
+    "issued": {
+      "@id": "dct:issued",
+      "@type": "xsd:date"
+    },
+    "created": {
+      "@id": "dct:created",
+      "@type": "xsd:date"
+    },
+    "modified": {
+      "@id": "dct:modified",
+      "@type": "xsd:date"
+    },
+    "creator": "dct:creator",
+    "publisher": "dct:publisher",
+    "preferredNamespacePrefix": "vann:preferredNamespacePrefix",
+    "preferredNamespaceUri": "vann:preferredNamespaceUri",
+    "isBasedOn": "schema:isBasedOn",
+    "source": "dct:source",
+    "prefLabel": {
+      "@container": "@language"
+    },
+    "altLabel": {
+      "@container": [
+        "@language",
+        "@set"
+      ]
+    },
+    "definition": {
+      "@container": "@language"
+    },
+    "scopeNote": {
+      "@container": "@language"
+    },
+    "note": {
+      "@container": "@language"
+    },
+    "notation": {
+      "@container": "@set"
+    },
+    "narrower": {
+      "@container": "@set"
+    },
+    "narrowerTransitive": {
+      "@container": "@set"
+    },
+    "broaderTransitive": {
+      "@container": "@set"
+    },
+    "followers": "as:followers",
+    "inbox": "ldp:inbox"
+  }
+}
