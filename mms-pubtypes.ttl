@@ -1,0 +1,536 @@
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:          <http://www.w3.org/2002/07/owl#> .
+@prefix cc:           <http://creativecommons.org/ns#> .
+@prefix dct:          <http://purl.org/dc/terms/> .
+@prefix dcmitype:     <http://purl.org/dc/dcmitype/> .
+@prefix fabio:        <http://purl.org/spar/fabio/> .
+@prefix frbr:         <http://purl.org/vocab/frbr/core#> .
+@prefix foaf:         <http://xmlns.com/foaf/0.1/> .
+@prefix tudo:         <http://data.ub.tu-dortmund.de/resource/> .
+@prefix pubtype:      <http://data.ub.tu-dortmund.de/resource/mms/pubtype/> .
+@prefix resourcetype: <http://data.ub.tu-dortmund.de/resource/datacite/resourcetype/> .
+@prefix casrai:       <http://dictionary.casrai.org/Output_Types/> .
+
+tudo:publicationTypesVocabulary
+    rdf:type           skos:ConceptScheme ;
+    dct:title          "The pubtype vocabulary used in MMS."@en ;
+    dct:title          "MMS-Vokabular für Publikationstypen"@de ;
+    cc:licence         <http://creativecommons.org/publicdomain/zero/1.0/legalcode> ;
+    cc:attributionURL  <https://data.ub.tu-dortmund.de> ;
+    cc:attributionName "TU Dortmund University, University Library"@en ;
+    cc:attributionName "Technische Universität Dortmund, Universitätsbibliothek"@de ;
+    cc:morePermissions <https://data.ub.tu-dortmund.de/policy.html> ;
+    dct:created        "2017-11-03"^^xsd:date ;
+    dct:modified       "2020-08-14"^^xsd:date ;
+    dct:version        "V 3.0" ;
+    skos:hasTopConcept pubtype:self_contained ;
+    skos:hasTopConcept pubtype:fragment ;
+    skos:hasTopConcept pubtype:self_contained_or_fragment ;
+    skos:hasTopConcept pubtype:series_group ;
+    skos:hasTopConcept pubtype:periodical ;
+    skos:hasTopConcept pubtype:patent_group ;
+    skos:hasTopConcept pubtype:research_data_group ;
+    skos:hasTopConcept pubtype:multi_volume_work_group ;
+    skos:hasTopConcept pubtype:integrating_resource ;
+    skos:hasTopConcept pubtype:audio_video_object ;
+    skos:hasTopConcept pubtype:thesis .
+
+pubtype:multi_volume_work_group
+    rdf:type       skos:Concept ;
+    skos:topConceptOf tudo:publicationTypesVocabulary ;
+    skos:notation  "multi_volume_work_group" ;
+    skos:prefLabel "Mehrbändiges Werk"@de ;
+    skos:prefLabel "Multivolume work"@en ;
+    skos:narrower  pubtype:multi_volume_work ;
+    skos:narrower  pubtype:monograph_mvw ;
+    skos:narrower  pubtype:collection_mvw ;
+    skos:narrower  pubtype:edition_mvw ;
+    skos:narrower  pubtype:conference_mvw ;
+    skos:inScheme  tudo:publicationTypesVocabulary .
+
+pubtype:multi_volume_work
+    rdf:type          skos:Concept ;
+    skos:notation     "multi_volume_work" ;
+    skos:prefLabel    "Mehrbändiges Werk"@de ;
+    skos:prefLabel    "Multi-volume work"@en ;
+    skos:broader      pubtype:multi_volume_work_group ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Book ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:monograph_mvw
+    rdf:type          skos:Concept ;
+    skos:notation     "monograph_mvw" ;
+    skos:prefLabel    "Monographie, mehrbändig"@de ;
+    skos:prefLabel    "Multi-volume monograph"@en ;
+    skos:broader      pubtype:multi_volume_work_group ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Book ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:collection_mvw
+    rdf:type          skos:Concept ;
+    skos:notation     "collection_mvw" ;
+    skos:prefLabel    "Sammelwerk, mehrbändig"@de ;
+    skos:prefLabel    "Multi-volume collection"@en ;
+    skos:broader      pubtype:multi_volume_work_group ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:edition_mvw
+    rdf:type          skos:Concept ;
+    skos:notation     "edition_mvw" ;
+    skos:prefLabel    "Edition, mehrbändig"@de ;
+    skos:prefLabel    "Multi-volume edition"@en ;
+    skos:broader      pubtype:multi_volume_work_group ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:conference_mvw
+    rdf:type          skos:Concept ;
+    skos:notation     "conference_mvw" ;
+    skos:prefLabel    "Konferenz, mehrbändig"@de ;
+    skos:prefLabel    "Multi-volume conference"@en ;
+    skos:broader      pubtype:multi_volume_work_group ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Edited_Book ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:self_contained
+    rdf:type       skos:Concept ;
+    skos:topConceptOf tudo:publicationTypesVocabulary ;
+    skos:notation  "self_contained" ;
+    skos:prefLabel "Selbständiges Werk"@de ;
+    skos:prefLabel "Self-contained Work"@en ;
+    skos:narrower  pubtype:monograph ;
+    skos:narrower  pubtype:collection ;
+    skos:narrower  pubtype:edition ;
+    skos:narrower  pubtype:conference ;
+    skos:narrower  pubtype:legal_commentary ;
+    skos:narrower  pubtype:report_collection ;
+    skos:narrower  pubtype:special_issue;
+    skos:inScheme  tudo:publicationTypesVocabulary .
+
+pubtype:monograph
+    rdf:type          skos:Concept ;
+    skos:notation     "monograph" ;
+    skos:prefLabel    "Monographie"@de ;
+    skos:prefLabel    "Monograph"@en ;
+    skos:broader      pubtype:self_contained ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Book ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:collection
+    rdf:type          skos:Concept ;
+    skos:notation     "collection" ;
+    skos:prefLabel    "Sammelwerk"@de ;
+    skos:prefLabel    "Collection"@en ;
+    skos:broader      pubtype:self_contained ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:report_collection
+  rdf:type          skos:Concept ;
+  skos:notation     "report_collection" ;
+  skos:prefLabel    "Sammelwerk von Reports/Berichten"@de ;
+  skos:prefLabel    "Report collection"@en ;
+  skos:broader      pubtype:self_contained ;
+  skos:relatedMatch resourcetype:Text ;
+  skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:edition
+    rdf:type          skos:Concept ;
+    skos:notation     "edition" ;
+    skos:prefLabel    "Edition"@de ;
+    skos:prefLabel    "Edition"@en ;
+    skos:broader      pubtype:self_contained ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:conference
+    rdf:type          skos:Concept ;
+    skos:notation     "conference" ;
+    skos:prefLabel    "Konferenzband"@de ;
+    skos:prefLabel    "Conference"@en ;
+    skos:broader      pubtype:self_contained ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Edited_Book ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:legal_commentary
+    rdf:type          skos:Concept ;
+    skos:notation     "legal_commentary" ;
+    skos:prefLabel    "Gesetzeskommentar"@de ;
+    skos:prefLabel    "Legal commentary"@en ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Book ;
+    skos:broader      pubtype:self_contained ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:special_issue
+    rdf:type          skos:Concept ;
+    skos:notation     "special_issue" ;
+    skos:prefLabel    "Sonderheft"@de ;
+    skos:prefLabel    "Special issue"@en ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Journal_Issue ;
+    skos:broader      pubtype:self_contained ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:fragment
+    rdf:type       skos:Concept ;
+    skos:topConceptOf tudo:publicationTypesVocabulary ;
+    skos:notation  "fragment" ;
+    skos:prefLabel "Unselbständiges Werk"@de ;
+    skos:prefLabel "Fragment"@en ;
+    skos:narrower  pubtype:editorial ;
+    skos:narrower  pubtype:chapter ;
+    skos:narrower  pubtype:chapter_in_conference ;
+    skos:narrower  pubtype:chapter_in_legal_commentary ;
+    skos:narrower  pubtype:article_newspaper ;
+    skos:narrower  pubtype:article_journal ;
+    skos:narrower  pubtype:article_overview ;
+    skos:narrower  pubtype:article_integrating_resource ;
+    skos:narrower  pubtype:lexicon_article ;
+    skos:narrower  pubtype:abstract ;
+    skos:narrower  pubtype:review ;
+    skos:inScheme  tudo:publicationTypesVocabulary .
+
+pubtype:editorial
+    rdf:type          skos:Concept ;
+    skos:notation     "editorial" ;
+    skos:prefLabel    "Editorial"@de ;
+    skos:prefLabel    "Editorial"@en ;
+    skos:broader      pubtype:fragment ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:lexicon_article
+    rdf:type          skos:Concept ;
+    skos:notation     "lexicon_article" ;
+    skos:prefLabel    "Lexikonartikel"@de ;
+    skos:prefLabel    "Article lexicon"@en ;
+    skos:broader      pubtype:fragment ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:article_overview
+    rdf:type          skos:Concept ;
+    skos:notation     "article_overview" ;
+    skos:prefLabel    "Überblicksartikel"@de ;
+    skos:prefLabel    "Article overview"@en ;
+    skos:broader      pubtype:fragment ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:article_integrating_resource
+    rdf:type          skos:Concept ;
+    skos:notation     "article_integrating_resource" ;
+    skos:prefLabel    "Artikel in einer integrierenden Ressource"@de ;
+    skos:prefLabel    "Article in integrating resource"@en ;
+    skos:broader      pubtype:fragment ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:self_contained_or_fragment
+    rdf:type       skos:Concept ;
+    skos:topConceptOf tudo:publicationTypesVocabulary ;
+    skos:notation  "self_contained_or_fragment" ;
+    skos:prefLabel "Selbständiges oder unselbständiges Werk"@de ;
+    skos:prefLabel "Self-contained Work or Fragment"@en ;
+    skos:narrower  pubtype:report_grey_literature ;
+    skos:narrower  pubtype:lecture ;
+    skos:narrower  pubtype:poster ;
+    skos:inScheme  tudo:publicationTypesVocabulary .
+
+pubtype:review
+    rdf:type          skos:Concept ;
+    skos:notation     "review" ;
+    skos:prefLabel    "Rezension"@de ;
+    skos:prefLabel    "Review"@en ;
+    skos:broader      pubtype:fragment ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:abstract
+    rdf:type          skos:Concept ;
+    skos:notation     "abstract" ;
+    skos:prefLabel    "Zusammenfassung"@de ;
+    skos:prefLabel    "Abstract"@en ;
+    skos:broader      pubtype:fragment ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:poster
+    rdf:type          skos:Concept ;
+    skos:notation     "poster" ;
+    skos:prefLabel    "Poster"@de ;
+    skos:prefLabel    "Poster"@en ;
+    skos:broader      pubtype:self_contained_or_fragment ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:series_group
+    rdf:type       skos:Concept ;
+    skos:topConceptOf tudo:publicationTypesVocabulary ;
+    skos:notation  "series" ;
+    skos:prefLabel "Serie (TopConcept)"@de ;
+    skos:prefLabel "Series (TopConcept)"@en ;
+    skos:narrower  pubtype:series ;
+    skos:inScheme  tudo:publicationTypesVocabulary .
+
+pubtype:series
+    rdf:type       skos:Concept ;
+    skos:notation  "series" ;
+    skos:prefLabel "Serie"@de ;
+    skos:prefLabel "Series"@en ;
+    skos:broader   pubtype:series_group ;
+    skos:inScheme  tudo:publicationTypesVocabulary .
+
+pubtype:periodical
+    rdf:type       skos:Concept ;
+    skos:notation  "periodical" ;
+    skos:prefLabel "Periodika"@de ;
+    skos:prefLabel "Periodical"@en ;
+    skos:narrower  pubtype:journal ;
+    skos:narrower  pubtype:newspaper ;
+    skos:inScheme  tudo:publicationTypesVocabulary .
+
+pubtype:journal
+    rdf:type          skos:Concept ;
+    skos:notation     "journal" ;
+    skos:prefLabel    "Zeitschrift"@de ;
+    skos:prefLabel    "Journal"@en ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:broader      pubtype:periodical ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:newspaper
+    rdf:type          skos:Concept ;
+    skos:notation     "newspaper" ;
+    skos:prefLabel    "Zeitung"@de ;
+    skos:prefLabel    "Newspaper"@en ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:broader      pubtype:periodical ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:research_data_group
+    rdf:type       skos:Concept ;
+    skos:topConceptOf tudo:publicationTypesVocabulary ;
+    skos:notation  "research_data_group" ;
+    skos:prefLabel "Forschungsdaten (TopConcept)"@de ;
+    skos:prefLabel "Research Data (TopConcept)"@en ;
+    skos:narrower  pubtype:research_data ;
+    skos:inScheme  tudo:publicationTypesVocabulary .
+
+pubtype:research_data
+    rdf:type       skos:Concept ;
+    skos:notation  "research_data" ;
+    skos:prefLabel "Forschungsdaten"@de ;
+    skos:prefLabel "Research Data"@en ;
+    skos:broader   pubtype:research_data_group ;
+    skos:inScheme  tudo:publicationTypesVocabulary .
+
+pubtype:integrating_resource
+    rdf:type       skos:Concept ;
+    skos:topConceptOf tudo:publicationTypesVocabulary ;
+    skos:notation  "integrating_resource" ;
+    skos:prefLabel "Integrierende Ressource"@de ;
+    skos:prefLabel "Integrating Resource"@en ;
+    skos:scopeNote
+                   "Diese Ressource ist durch das Konzept Integrierende Ressource aus den Resource Description and Access (RDA) entnommen und ersetzt das Konzept Internetdokument aus der vorigen Version des MMS Vokabulars."@de ;
+    skos:narrower  pubtype:blog ;
+    skos:narrower  pubtype:website ;
+    skos:inScheme  tudo:publicationTypesVocabulary .
+
+pubtype:blog
+    rdf:type          skos:Concept ;
+    skos:notation     "blog" ;
+    skos:prefLabel    "Blog"@de ;
+    skos:prefLabel    "Blog"@en ;
+    skos:broader      pubtype:integrating_resource ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Website ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:website
+    rdf:type          skos:Concept ;
+    skos:notation     "website" ;
+    skos:prefLabel    "Webseite"@de ;
+    skos:prefLabel    "Website"@en ;
+    skos:broader      pubtype:integrating_resource ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Website ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:article_journal
+    rdf:type          skos:Concept ;
+    skos:notation     "article_journal" ;
+    skos:prefLabel    "Zeitschriftenartikel"@de ;
+    skos:prefLabel    "Article journal"@en ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Journal_Article ;
+    skos:broader      pubtype:fragment ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:article_newspaper
+    rdf:type          skos:Concept ;
+    skos:notation     "article_newspaper" ;
+    skos:prefLabel    "Zeitungsartikel"@de ;
+    skos:prefLabel    "Article newspaper"@en ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Newspaper_Article ;
+    skos:broader      pubtype:fragment ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:audio_video_object
+    rdf:type       skos:Concept ;
+    skos:topConceptOf tudo:publicationTypesVocabulary ;
+    skos:notation  "audio_video_object" ;
+    skos:prefLabel "Audiovisuelles Objekt"@de ;
+    skos:prefLabel "Audiovisual Object"@en ;
+    skos:narrower  pubtype:radio_tv ;
+    skos:narrower  pubtype:audio_video_document ;
+    skos:inScheme  tudo:publicationTypesVocabulary .
+
+pubtype:radio_tv
+    rdf:type          skos:Concept ;
+    skos:notation     "radio_tv" ;
+    skos:prefLabel    "Radio-/TV-Beitrag"@de ;
+    skos:prefLabel    "Radio/TV"@en ;
+    skos:relatedMatch resourcetype:Event ;
+    skos:broader      pubtype:audio_video_object ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:audio_video_document
+    rdf:type          skos:Concept ;
+    skos:notation     "audio_video_document" ;
+    skos:prefLabel    "Audio-/Videodokument"@de ;
+    skos:prefLabel    "Audio/Video Document"@en ;
+    skos:relatedMatch resourcetype:Audiovisual ;
+    skos:broader      pubtype:audio_video_object ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:chapter
+    rdf:type          skos:Concept ;
+    skos:notation     "chapter" ;
+    skos:prefLabel    "Kapitel"@de ;
+    skos:prefLabel    "Chapter"@en ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Book_Paper ;
+    skos:broader      pubtype:fragment ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:chapter_in_conference
+    rdf:type          skos:Concept ;
+    skos:notation     "chapter_in_conference" ;
+    skos:prefLabel    "Kapitel in Konferenzband"@de ;
+    skos:prefLabel    "Chapter in conference"@en ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Conference_Paper ;
+    skos:broader      pubtype:fragment ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:chapter_in_legal_commentary
+    rdf:type          skos:Concept ;
+    skos:notation     "chapter_in_legal_commentary" ;
+    skos:prefLabel    "Kapitel im Gesetzeskommentar"@de ;
+    skos:prefLabel    "Chapter in legal commentary"@en ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Book_Paper ;
+    skos:broader      pubtype:fragment ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:lecture
+    rdf:type          skos:Concept ;
+    skos:notation     "lecture" ;
+    skos:prefLabel    "Vortrag"@de ;
+    skos:prefLabel    "Lecture"@en ;
+    skos:relatedMatch resourcetype:Event ;
+    skos:broader      pubtype:self_contained_or_fragment ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:patent_group
+    rdf:type          skos:Concept ;
+    skos:topConceptOf tudo:publicationTypesVocabulary ;
+    skos:notation     "patent_group" ;
+    skos:prefLabel    "Patent (TopConcept)"@de ;
+    skos:prefLabel    "Patent (TopConcept)"@en ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Patent ;
+    skos:narrower     pubtype:patent ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:patent
+    rdf:type          skos:Concept ;
+    skos:notation     "patent" ;
+    skos:prefLabel    "Patent"@de ;
+    skos:prefLabel    "Patent"@en ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Patent ;
+    skos:broader      pubtype:patent_group ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:report_grey_literature
+    rdf:type          skos:Concept ;
+    skos:notation     "report_grey_literature" ;
+    skos:prefLabel    "Report/Bericht (graue Literatur)"@de ;
+    skos:prefLabel    "Report grey literature, report"@en ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Report ;
+    skos:broader      pubtype:self_contained_or_fragment ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:series
+    rdf:type          skos:Concept ;
+    skos:notation     "series" ;
+    skos:prefLabel    "Reihe"@de ;
+    skos:prefLabel    "Series"@en ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Book_Series ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:thesis
+    rdf:type       skos:Concept ;
+    skos:topConceptOf tudo:publicationTypesVocabulary ;
+    skos:notation  "thesis" ;
+    skos:prefLabel "Hochschulschrift"@de ;
+    skos:prefLabel "Thesis"@en ;
+    skos:narrower  pubtype:student_thesis ;
+    skos:narrower  pubtype:dissertation ;
+    skos:narrower  pubtype:habilitation ;
+    skos:inScheme  tudo:publicationTypesVocabulary .
+
+pubtype:student_thesis
+    rdf:type          skos:Concept ;
+    skos:notation     "student_thesis" ;
+    skos:prefLabel    "Studentische Arbeit"@de ;
+    skos:prefLabel    "Student thesis"@en ;
+    skos:broader      pubtype:thesis ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Supervised_Student_Publication ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:dissertation
+    rdf:type          skos:Concept ;
+    skos:notation     "dissertation" ;
+    skos:prefLabel    "Dissertation"@de ;
+    skos:prefLabel    "Dissertation"@en ;
+    skos:broader      pubtype:thesis ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Dissertation ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
+
+pubtype:habilitation
+    rdf:type          skos:Concept ;
+    skos:notation     "habilitation" ;
+    skos:prefLabel    "Habilitation"@de ;
+    skos:prefLabel    "Habilitation"@en ;
+    skos:broader      pubtype:thesis ;
+    skos:relatedMatch resourcetype:Text ;
+    skos:closeMatch   casrai:Dissertation ;
+    skos:inScheme     tudo:publicationTypesVocabulary .
